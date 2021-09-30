@@ -1,18 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <products-list></products-list>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import ProductsList from '@/components/products/ProductsList.vue';
 
 @Options({
   components: {
-    HelloWorld,
+    ProductsList,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  created() {
+    this.$store.dispatch('products/loadProducts');
+    this.$store.dispatch('products/loadNames');
+  }
+}
 </script>
 
 <style lang="scss">
