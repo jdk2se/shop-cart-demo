@@ -4,17 +4,17 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import ProductsList from '@/components/products/ProductsList.vue';
+import Catalog from '@/components/catalog/Catalog.vue';
 
 @Options({
   components: {
-    ProductsList,
+    ProductsList: Catalog,
   },
 })
 export default class App extends Vue {
   created() {
     this.$store.dispatch('products/loadProducts');
-    this.$store.dispatch('products/loadNames');
+    this.$store.dispatch('categories/loadCategories');
   }
 }
 </script>
