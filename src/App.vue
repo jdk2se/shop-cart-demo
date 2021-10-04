@@ -1,14 +1,17 @@
 <template>
-  <products-list></products-list>
+  <cart></cart>
+  <catalog></catalog>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import Catalog from '@/components/catalog/Catalog.vue';
+import Cart from '@/components/cart/Cart.vue';
 
 @Options({
   components: {
-    ProductsList: Catalog,
+    Catalog,
+    Cart,
   },
 })
 export default class App extends Vue {

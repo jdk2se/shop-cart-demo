@@ -7,17 +7,27 @@
     <div class="product__price">
       {{ product.price }}
     </div>
+    <div class="product__add" @click="addToCart">
+      to cart
+    </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {CatalogProduct} from '@/models/CatalogProduct';
 
 export default class ProductItem extends Vue {
   @Prop({type: CatalogProduct})
-  product;
+  product: any;
+
+  addToCart() {
+    this.$store.dispatch('cart/addProductToCart', {
+      title: this.product.title,
+      price: this.product.price,
+    });
+  }
 }
 </script>
 
